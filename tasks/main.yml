@@ -10,7 +10,7 @@
   ansible.builtin.apt_repository:
     repo: "deb [arch={{ ngrok_arch }} signed-by={{ ngrok_keyring }}] https://ngrok-agent.s3.amazonaws.com buster main"
     filename: ngrok
-    update_cache: True
+    update_cache: true
     state: present
   tags:
     - ngrok
