@@ -3,6 +3,6 @@
 ngrok_keyring: /usr/share/keyrings/ngrok-archive-keyring.gpg
 
 # @var ngrok_arch:description: Architecture for ngrok repo
-ngrok_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+ngrok_arch: "{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
 
 ...

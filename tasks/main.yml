@@ -1,8 +1,28 @@
 ---
 - name: Download repo key
-  ansible.builtin.shell:
-    cmd: "curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | gpg --dearmor --output {{ ngrok_keyring }}"
-    creates: "{{ ngrok_keyring }}"
+  register: ngrok_key_download
+  ansible.builtin.get_url:
+    url: https://ngrok-agent.s3.amazonaws.com/ngrok.asc
+    dest: "{{ ngrok_keyring }}.asc"
+    mode: u=rw,g=r,o=r
+    force: true
+  tags:
+    - ngrok
+
+- name: Check repo key
+  register: ngrok_key_status
+  ansible.builtin.stat:
+    path: "{{ ngrok_keyring }}"
+  tags:
+    - ngrok
+
+- name: Dearmor repo key
+  when:
+    - ngrok_key_download.changed or not ngrok_key_status.stat.exists
+  register: ngrok_key_convert
+  changed_when: ngrok_key_convert.rc == 0
+  ansible.builtin.command:
+    cmd: "gpg --dearmor -o {{ ngrok_keyring }} {{ ngrok_keyring }}.asc"
   tags:
     - ngrok
 

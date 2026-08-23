@@ -39,7 +39,7 @@ Architecture for ngrok repo
 #### Default value
 
 ```YAML
-ngrok_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+ngrok_arch: "{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
 ```
 
 ### ngrok_keyring
