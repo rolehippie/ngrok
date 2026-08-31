@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.3.1](https://github.com/rolehippie/ngrok/compare/v2.3.0...v2.3.1) (2026-08-31)
+
+### Dependencies
+
+* **patch:** update dependency pipx:ansible-doctor to v8.4.1 ([#47](https://github.com/rolehippie/ngrok/issues/47)) ([360c6d0](https://github.com/rolehippie/ngrok/commit/360c6d034ef7219ea0171497507e37f970888e72))
+
 ## [2.3.0](https://github.com/rolehippie/ngrok/compare/v2.2.0...v2.3.0) (2026-08-24)
 
 ### Features
