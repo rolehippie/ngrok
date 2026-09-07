@@ -22,7 +22,7 @@
   register: ngrok_key_convert
   changed_when: ngrok_key_convert.rc == 0
   ansible.builtin.command:
-    cmd: "gpg --dearmor -o {{ ngrok_keyring }} {{ ngrok_keyring }}.asc"
+    cmd: "gpg --batch --yes --dearmor -o {{ ngrok_keyring }} {{ ngrok_keyring }}.asc"
   tags:
     - ngrok
 
