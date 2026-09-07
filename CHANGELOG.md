@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.4.0](https://github.com/rolehippie/ngrok/compare/v2.3.1...v2.4.0) (2026-09-07)
+
+### Features
+
+* use new required facts as attributes ([d8219db](https://github.com/rolehippie/ngrok/commit/d8219db125462cc55a39f5ce5ef67dbb9bab9d67))
+
 ## [2.3.1](https://github.com/rolehippie/ngrok/compare/v2.3.0...v2.3.1) (2026-08-31)
 
 ### Dependencies
